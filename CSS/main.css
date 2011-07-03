@@ -1,6 +1,6 @@
 body{
 //    overflow:hidden;
-    font-family: 'Pacifico', 'Jura', helevetica;    
+    font-family: 'Play', 'Jura', helevetica;    
     font-size: 36px;
     font-style: normal;
     letter-spacing: 0em;
@@ -16,7 +16,7 @@ article{
     height:700px;
 }
 
-.veggie1{
+.veggie1,.veggie2{
     margin: 50px auto auto auto;
     width: 624px;
     height: 100%;
