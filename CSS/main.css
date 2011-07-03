@@ -1,0 +1,25 @@
+body{
+//    overflow:hidden;
+}
+.veggie1{
+    margin: 15px auto auto auto;
+    width: 624px;
+    height: 100%;
+
+}
+
+.box{
+height: 180px;
+//background-color:lightgray;
+}
+
+.box ul{
+    list-style:none;
+    height:150px;
+}
+
+.box ul li{
+    display:inline;
+    float:left;
+    padding:3px;
+}

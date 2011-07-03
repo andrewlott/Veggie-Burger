@@ -5,13 +5,12 @@
    
 -------------------------------------------------------------- */
 
-@import "lib/reset.css";
-@import "lib/typography.css";
-@import "lib/forms.css";
-@import "lib/plugins.css";
+@import "reset.css";
 
 
 /* Site
 -------------------------------------------------------------- */
   
   /* Put your site styles here */
+
+@import "main.css";
