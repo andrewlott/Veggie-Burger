@@ -36,8 +36,9 @@ function start() {
 }
 
 function swap() {
-    console.log('@swap');
+
     $('.box ul').fadeOut('slow', function(){
+    console.log(thumbs[index]);
 	$('.box li img').attr('src', thumbs[index++]);
     });
     $('.box ul').fadeIn('slow', function(){
