@@ -51,12 +51,12 @@ function swap() {
         $('.veggie1 .box #name').html(pics[index].title +'   -'+pics[index].user);
 	$('.veggie1 .box li img').attr('src', pics[index++].thumb);
 
-    });
-    $('.veggie1 .box').fadeIn('slow', function(){
+	$('.veggie1 .box').fadeIn('slow', function(){
 	if(index % num == 0){
 	    console.log(index);
 	    getImgs(index*Math.floor(index/num.round) );
 	}	
+       });
     });
 
     

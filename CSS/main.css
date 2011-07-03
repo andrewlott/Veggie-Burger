@@ -1,6 +1,6 @@
 body{
 //    overflow:hidden;
-    font-family: 'Play', 'Jura', helevetica;    
+    font-family: 'Judson', 'Jura', helevetica;    
     font-size: 36px;
     font-style: normal;
     letter-spacing: 0em;
@@ -40,8 +40,11 @@ height: 180px;
 }
 
 .box #name{
+    text-align: right;
     float: right; 
     color: #777;
     font-size:0.5em;
     overflow:hidden;
+    width:100%;
+    height:40px;
 }

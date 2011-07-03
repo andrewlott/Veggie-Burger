@@ -17,29 +17,26 @@ function setLocation(position){
 }
 
 
-var id = 'b9c719516ec54867b756ad8a2f6dcd83';
-var secret = '62f7eeac9ebe46f890c74fdfbcc17a7d';
-var base_url = 'https://api.instagram.com/v1/locations/search?client_id=';
+
+var base_url_loc = 'https://api.instagram.com/v1/locations/search?client_id=';
 
 var locs = [];
 
 function startLocation(pos){
     console.log('strt location');
-    $.getJSON(  base_url + id + "&callback=?&lat="+pos.lat+"&lng="+pos.lng, loadLoc);
+    $.getJSON(  base_url_loc + id + "&callback=?&lat="+pos.lat+"&lng="+pos.lng, loadLoc);
 
 }
 
 function loadLoc(data){
      console.log(data);
       $.each(data.data, function(i, obj){
-	  if(!~locs.indexOf(obj.images.thumbnail.url))
-	  {
 	      var tmp = {
 		  id: obj.id,
 		  lat: obj.latitude,
 		  lng: obj.longitude}
       	      locs.push(tmp);
-	  }
+
      });
     startPic();    
 };
@@ -48,7 +45,7 @@ function startPic(){
     $('.veggie2 .box ').fadeOut('slow', function(){
 //        $('.veggie2 .box #name').html(locs[index].title +'   -'+locs[index].user);
 	$('.veggie2 .box li').each(function(i, obj){
-	    $(this).append(obj.id);
+	    $(this).html(locs[i].id); 
 	});
 
 
