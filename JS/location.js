@@ -24,7 +24,7 @@ var base_url = 'https://api.instagram.com/v1/locations/search?client_id=';
 var locs = [];
 
 function startLocation(pos){
-    
+    console.log('strt location');
     $.getJSON(  base_url + id + "&callback=?&lat="+pos.lat+"&lng="+pos.lng, loadLoc);
 
 }
@@ -35,10 +35,10 @@ function loadLoc(data){
 	  if(!~locs.indexOf(obj.images.thumbnail.url))
 	  {
 	      var tmp = {
-	     thumb: obj.images.thumbnail.url, 
-	     user: obj.user.username, 
-	     title: obj.caption ? obj.caption.text : ''};	      
-      	     locs.push(tmp);
+		  id: obj.id,
+		  lat: obj.latitude,
+		  lng: obj.longitude}
+      	      locs.push(tmp);
 	  }
      });
     startPic();    
@@ -48,7 +48,7 @@ function startPic(){
     $('.veggie2 .box ').fadeOut('slow', function(){
 //        $('.veggie2 .box #name').html(locs[index].title +'   -'+locs[index].user);
 	$('.veggie2 .box li').each(function(i, obj){
-	    $('img', this).attr('src', locs[i].thumb);	    
+	    $(this).append(obj.id);
 	});
 
 
@@ -62,5 +62,6 @@ function err(e){
     console.log(e);
     if (e.code==1) console.log('please give us your location info');
     //just for dev
-    startLocation({lat:40, lng:-73.98});
+    startLocation({lat:48.858844, lng:2.294351}); 
 }
+
