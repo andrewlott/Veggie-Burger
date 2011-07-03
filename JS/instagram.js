@@ -3,7 +3,7 @@ var secret = '62f7eeac9ebe46f890c74fdfbcc17a7d';
 var base_url = 'https://api.instagram.com/v1/media/popular?client_id=';
 
 num = 16;//$('.box li').length;
-thumbs = [];
+pics = [];
 index = 0;
 
 
@@ -23,16 +23,20 @@ $.getJSON(  base_url + id + "&callback=?&count="+total,load);
 
 
 function load(data){
+     console.log(data);
       $.each(data.data, function(i, obj){
-	  if(!~thumbs.indexOf(obj.images.thumbnail.url))
-	     thumbs.push(obj.images.thumbnail.url);
-      });
-    if(index==0){
-	start();
-	$('.box').fadeIn('slow');
-    }
+	  if(!~pics.indexOf(obj.images.thumbnail.url))
+	      var tmp = {
+	     thumb: obj.images.thumbnail.url, 
+	     user: obj.user.username, 
+	     title: obj.caption ? obj.caption.text : ''};
+	     pics.push(tmp);
+     });
+     if(index==0){
+        start();
+        $('.box').fadeIn('slow');
+     }
 };
-
 function start() {
     //init the box with 
     swap();
@@ -42,11 +46,12 @@ function start() {
 
 function swap() {
 
-    $('.box ul').fadeOut('slow', function(){
-    console.log(thumbs[index]);
-	$('.box li img').attr('src', thumbs[index++]);
+    $('.box ').fadeOut('slow', function(){
+        $('.box #name').html(pics[index].title +'   -'+pics[index].user);
+	$('.box li img').attr('src', pics[index++].thumb);
+
     });
-    $('.box ul').fadeIn('slow', function(){
+    $('.box').fadeIn('slow', function(){
 	if(index % num == 0){
 	    console.log(index);
 	    getImgs(index*Math.floor(index/num.round) );

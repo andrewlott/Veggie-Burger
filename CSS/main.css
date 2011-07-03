@@ -1,6 +1,21 @@
 body{
-    overflow:hidden;
+//    overflow:hidden;
+    font-family: 'Pacifico', 'Jura', helevetica;    
+    font-size: 36px;
+    font-style: normal;
+    letter-spacing: 0em;
+    word-spacing: 0em;
+    line-height: 1.2;
 }
+
+article{
+    border-bottom: solid grey 1px;
+    width:900px;
+    margin:auto;
+    clear:both;
+    height:700px;
+}
+
 .veggie1{
     margin: 50px auto auto auto;
     width: 624px;
@@ -22,4 +37,11 @@ height: 180px;
     display:inline;
     float:left;
     padding:3px;
+}
+
+.box #name{
+    float: right; 
+    color: #777;
+    font-size:0.5em;
+    overflow:hidden;
 }
