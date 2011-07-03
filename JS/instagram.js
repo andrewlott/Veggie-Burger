@@ -8,6 +8,7 @@ index = 0;
 
 
 //init placeholders
+$('.box').hide();
 for (var i=0; i<num; i++)
     $('.box ul').append('<li><img src=""/></li>');
 
@@ -17,6 +18,7 @@ getImgs(num);
 
 function getImgs(total){
 $.getJSON(  base_url + id + "&callback=?&count="+total,load);
+
 }
 
 
@@ -25,7 +27,10 @@ function load(data){
 	  if(!~thumbs.indexOf(obj.images.thumbnail.url))
 	     thumbs.push(obj.images.thumbnail.url);
       });
-    if(index==0) start();
+    if(index==0){
+	start();
+	$('.box').fadeIn('slow');
+    }
 };
 
 function start() {
