@@ -10,7 +10,7 @@ function setLocation(position){
 	lng: position.coords.longitude
     };
     
-    console.log("Your location is: " + lat+ ", "  + lng);
+    console.log("Your location is: " + pos.lat+ ", "  + po.lng);
 
     startLocation(pos);
 
