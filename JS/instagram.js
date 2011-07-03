@@ -25,16 +25,17 @@ $.getJSON(  base_url + id + "&callback=?&count="+total,load);
 function load(data){
      console.log(data);
       $.each(data.data, function(i, obj){
-	  if(!~pics.indexOf(obj.images.thumbnail.url))
+	  if(!~pics.indexOf(obj.images.thumbnail.url)){
 	      var tmp = {
 	     thumb: obj.images.thumbnail.url, 
 	     user: obj.user.username, 
 	     title: obj.caption ? obj.caption.text : ''};
 	     pics.push(tmp);
+	  }
      });
      if(index==0){
         start();
-        $('.box').fadeIn('slow');
+        $('.veggie1 .box').fadeIn('slow');
      }
 };
 function start() {
@@ -46,12 +47,12 @@ function start() {
 
 function swap() {
 
-    $('.box ').fadeOut('slow', function(){
-        $('.box #name').html(pics[index].title +'   -'+pics[index].user);
-	$('.box li img').attr('src', pics[index++].thumb);
+    $('.veggie1 .box ').fadeOut('slow', function(){
+        $('.veggie1 .box #name').html(pics[index].title +'   -'+pics[index].user);
+	$('.veggie1 .box li img').attr('src', pics[index++].thumb);
 
     });
-    $('.box').fadeIn('slow', function(){
+    $('.veggie1 .box').fadeIn('slow', function(){
 	if(index % num == 0){
 	    console.log(index);
 	    getImgs(index*Math.floor(index/num.round) );
