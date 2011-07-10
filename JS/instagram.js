@@ -1,3 +1,7 @@
+/**
+ * Retrieves the top NUM many popular pictures from instagram. sets up basic global var and should only modify things in veggie1
+ **/
+
 var id = 'b9c719516ec54867b756ad8a2f6dcd83';
 var secret = '62f7eeac9ebe46f890c74fdfbcc17a7d';
 var base_url = 'https://api.instagram.com/v1/media/popular?client_id=';
@@ -8,9 +12,9 @@ index = 0;
 
 
 //init placeholders
-$('.box').hide();
+$('.veggie1 .box').hide();
 for (var i=0; i<num; i++)
-    $('.box ul').append('<li><img src=""/></li>');
+    $('.veggie1 .box ul').append('<li><img src=""/></li>');
 
 getImgs(num);
 
