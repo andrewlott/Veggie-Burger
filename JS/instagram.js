@@ -27,7 +27,7 @@ $.getJSON(  base_url + id + "&callback=?&count="+total,load);
 
 
 function load(data){
-     console.log(data);
+//     console.log(data);
       $.each(data.data, function(i, obj){
 	  if(!~pics.indexOf(obj.images.thumbnail.url)){
 	      var tmp = {
@@ -57,7 +57,7 @@ function swap() {
 
 	$('.veggie1 .box').fadeIn('slow', function(){
 	if(index % num == 0){
-	    console.log(index);
+//	    console.log(index);
 	    getImgs(index*Math.floor(index/num.round) );
 	}	
        });
