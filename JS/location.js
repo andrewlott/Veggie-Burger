@@ -43,11 +43,13 @@ function loadLoc(data){
 
 function startPic(){
     $('.veggie2 .box ').fadeOut('slow', function(){
-//        $('.veggie2 .box #name').html(locs[index].title +'   -'+locs[index].user);
-	for(i=0; i< locs.length; i++){
-	  $('.veggie2 .box ul').append('<li>'+ locs[i].id + '</li>');
-	}
 
+	var numLocs = locs.length > num ? num : locs.length; // num is the global var used in instagram.js to specify the num of images
+	for(i=0; i< numLocs; i++){
+	  $('.veggie2 .box ul').append('<li>'+ locs[i].id + '</li>');
+	  //        $('.veggie2 .box #name').html(locs[index].title +'   -'+locs[index].user);
+	}
+	
     });
     $('.veggie2 .box').fadeIn('slow');
 
