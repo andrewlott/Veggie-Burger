@@ -44,10 +44,9 @@ function loadLoc(data){
 function startPic(){
     $('.veggie2 .box ').fadeOut('slow', function(){
 //        $('.veggie2 .box #name').html(locs[index].title +'   -'+locs[index].user);
-	$('.veggie2 .box li').each(function(i, obj){
-	    $(this).html(locs[i].id); 
-	});
-
+	for(i=0; i< locs.length; i++){
+	  $('.veggie2 .box ul').append('<li>'+ locs[i].id + '</li>');
+	}
 
     });
     $('.veggie2 .box').fadeIn('slow');
