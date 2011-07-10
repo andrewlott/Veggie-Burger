@@ -50,20 +50,22 @@ function getMedia(media_id){
 //tried other solution with using textStatus and xhr but still won't catch it with just getJSON -_- the error message in the console is so annoying
     $.jsonp({
     "url": base_url_media + media_id + "?client_id="+id+"&callback=?",
-	"success" : function (media, textStatus, xhr){
+	"success" : add_media,
+	"error": media_fail_remove_li,
+	//take advantage of caching
+	cache: true
+    });
+}
+
+function add_media(media, textStatus, xhr){
 	    // if there is no data == we have no access rights to this image
 	    if (media.data != null){
-		$('.veggie2 .box .loading:first').html('<img src=" '+media.data.images.thumbnail.url+'"/>');
+		var content = '<img src=" '+media.data.images.thumbnail.url+'"/>';
+		$('.veggie2 .box .loading:first').html(content);
 		$('.veggie2 .box .loading:first').removeClass('loading');
 	    }
 	    else media_fail_remove_li(); //remove loading
-    },
-    "error" : function(d, msg){
-	media_fail_remove_li();
-    }, 
-	cache: true, //take advantage of caching
-	pageCache:true
-    });
+
 }
 
 function media_fail_remove_li(){ $('.veggie2 .box .loading:first').remove(); }
@@ -72,7 +74,7 @@ function media_fail_remove_li(){ $('.veggie2 .box .loading:first').remove(); }
 function err(e){
     console.log(e);
     if (e.code==1) console.log('please give us your location info');
-    //just for dev
+    //just for development, on local geolocation doesn't work
     startLocation({lat:48.858844, lng:2.294351}); 
 }
 
